@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 13: Chuyen doi nhiet do</title>
+</head>
+<body>
+    <h2>Chuyen doi nhiet do</h2>
+    <label for="celsius">Nhap nhiet do (C):</label>
+    <input type="number" id="celsius" placeholder="Do C">
+    <button onclick="chuyenDoi()">Chuyen doi</button>
+    <p id="result"></p>
+
+    <script>
+        function chuyenDoi() {
+            const val = document.getElementById('celsius').value;
+            const res = document.getElementById('result');
+            if (val === '') {
+                res.innerText = 'Vui long nhap nhiet do C!';
+                return;
+            }
+            const c = parseFloat(val);
+            const f = (9 / 5) * c + 32;
+            res.innerText = c + ' do C = ' + f.toFixed(2) + ' do F.';
+        }
+    </script>
+</body>
+</html>

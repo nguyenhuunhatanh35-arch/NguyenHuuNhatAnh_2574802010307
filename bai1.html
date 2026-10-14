@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 1: Kiem tra so chan / le</title>
+</head>
+<body>
+    <h2>Chuong trinh kiem tra so chan - le</h2>
+    <label for="num">Nhap so nguyen</label>
+    <input type="number" id="num" placeholder="Nhap so...">
+    <button onclick="kiemTra()">Kiem tra</button>
+    <p id="result"></p>
+
+    <script>
+        function kiemTra() {
+            const val = document.getElementById('num').value;
+            const res = document.getElementById('result');
+            if (val === '') {
+                res.innerText = 'Vui long nhap mot so';
+                return;
+            }
+            const num = parseInt(val);
+            res.innerText = (num % 2 === 0) ? `${num} la so chan` : `${num} la so le`;
+        }
+    </script>
+</body>
+</html>

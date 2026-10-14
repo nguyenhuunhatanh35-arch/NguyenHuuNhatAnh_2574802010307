@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 10: May tinh don gian</title>
+</head>
+<body>
+    <h2>May tinh don gian</h2>
+    <input type="number" id="numA" placeholder="Nhap so thu nhat"><br><br>
+    <input type="number" id="numB" placeholder="Nhap so thu hai"><br><br>
+    <button onclick="tinh('+')">Phep cong</button>
+    <button onclick="tinh('-')">Phep tru</button>
+    <button onclick="tinh('*')">Phep nhan</button>
+    <button onclick="tinh('/')">Phep chia</button>
+    <p id="result"></p>
+
+    <script>
+        function tinh(op) {
+            const aVal = document.getElementById('numA').value;
+            const bVal = document.getElementById('numB').value;
+            const res = document.getElementById('result');
+
+            if (aVal === '' || bVal === '') {
+                res.innerText = 'Vui long nhap du 2 so!';
+                return;
+            }
+
+            const a = parseFloat(aVal);
+            const b = parseFloat(bVal);
+            let ans = 0;
+
+            switch (op) {
+                case '+': ans = a + b; break;
+                case '-': ans = a - b; break;
+                case '*': ans = a * b; break;
+                case '/':
+                    if (b === 0) {
+                        res.innerText = 'Khong the chia cho 0!';
+                        return;
+                    }
+                    ans = a / b;
+                    break;
+            }
+            res.innerText = 'Ket qua: ' + a + ' ' + op + ' ' + b + ' = ' + ans;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 7: Xuc xac may man</title>
+</head>
+<body>
+    <h2>Xuc xac may man</h2>
+    <button onclick="lacXucXac()">Lac xuc xac</button>
+    <p id="result"></p>
+
+    <script>
+        function lacXucXac() {
+            const dice = Math.floor(Math.random() * 6) + 1;
+            document.getElementById('result').innerText = 'Ket qua: ' + dice + ' diem.';
+        }
+    </script>
+</body>
+</html>

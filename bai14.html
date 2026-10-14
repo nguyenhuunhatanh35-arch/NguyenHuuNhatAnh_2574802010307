@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 14: Tinh chi so BMI</title>
+</head>
+<body>
+    <h2>Tinh chi so BMI</h2>
+    <label for="height">Chieu cao (m):</label><br>
+    <input type="number" step="0.01" id="height" placeholder="Vi du: 1.70"><br><br>
+    <label for="weight">Can nang (kg):</label><br>
+    <input type="number" step="0.1" id="weight" placeholder="Vi du: 65"><br><br>
+    <button onclick="tinhBMI()">Tinh BMI</button>
+    <p id="result"></p>
+
+    <script>
+        function tinhBMI() {
+            const hVal = document.getElementById('height').value;
+            const wVal = document.getElementById('weight').value;
+            const res = document.getElementById('result');
+
+            if (!hVal || !wVal) {
+                res.innerText = 'Vui long nhap day du chieu cao va can nang!';
+                return;
+            }
+
+            const h = parseFloat(hVal);
+            const w = parseFloat(wVal);
+
+            if (h <= 0 || w <= 0) {
+                res.innerText = 'Du lieu chieu cao va can nang phai lon hon 0!';
+                return;
+            }
+
+            const bmi = w / (h * h);
+            let category = '';
+
+            if (bmi < 18.5) {
+                category = 'Gầy';
+            } else if (bmi < 24.9) {
+                category = 'Bình thường';
+            } else if (bmi < 29.9) {
+                category = 'Thừa cân';
+            } else {
+                category = 'Béo phì';
+            }
+
+            res.innerText = 'BMI: ' + bmi.toFixed(2) + ' - Danh gia: ' + category;
+        }
+    </script>
+</body>
+</html>

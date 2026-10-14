@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 4: May tinh tinh yeu</title>
+</head>
+<body>
+    <h2>Chuong trinh may tinh tinh yeu</h2>
+    <label for="name1">Nhap ten ban</label><br>
+    <input type="text" id="name1" placeholder=""><br><br>
+    <label for="name2">Nhap ten nguoi ay</label><br>
+    <input type="text" id="name2" placeholder=""><br><br>
+    <button onclick="tinhTinhYeu()">Tinh ty le phu hop</button>
+    <p id="result"></p>
+
+    <script>
+        function tinhTinhYeu() {
+            const name1 = document.getElementById('name1').value.trim();
+            const name2 = document.getElementById('name2').value.trim();
+            const res = document.getElementById('result');
+
+            if (!name1 || !name2) {
+                res.innerText = 'Vui long nhap day du hai ten!';
+                return;
+            }
+            const percent = Math.floor(Math.random() * 100) + 1;
+            let msg = '';
+            if (percent > 80) msg = 'Tam dau y hop. Cap doi hoan hao!';
+            else if (percent >= 50) msg = 'Kha hop nhau day, co gang len nhe!';
+            else msg = 'Can bu dap va thau hieu nhau nhieu hon!';
+
+            res.innerText = `${name1} & ${name2}: Ty le phu hop ${percent}% - ${msg}`;
+        }
+    </script>
+</body>
+</html>

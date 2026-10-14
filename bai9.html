@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 9: Quay thuong may man</title>
+</head>
+<body>
+    <h2>Quay thuong may man</h2>
+    <button onclick="quayThuong()">Quay thuong</button>
+    <p id="result"></p>
+
+    <script>
+        function quayThuong() {
+            const gifts = ['Cong 1 diem', 'Cong 2 diem', 'Cong 3 diem', 'Tru 1 diem', 'Tru 2 diem', 'Tru 3 diem'];
+            const randomGift = gifts[Math.floor(Math.random() * gifts.length)];
+            document.getElementById('result').innerText = 'Ket qua: ' + randomGift;
+        }
+    </script>
+</body>
+</html>

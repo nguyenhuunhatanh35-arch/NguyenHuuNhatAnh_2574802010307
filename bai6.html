@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 6: Tro choi Oan tu ti</title>
+</head>
+<body>
+    <h2>Tro choi Oan tu ti</h2>
+    <p>Chon nuoc di cua ban:</p>
+    <button onclick="choi('Da')">Da</button>
+    <button onclick="choi('Giay')">Giay</button>
+    <button onclick="choi('Keo')">Keo</button>
+    <p id="result"></p>
+
+    <script>
+        function choi(userChoice) {
+            const choices = ['Da', 'Giay', 'Keo'];
+            const compChoice = choices[Math.floor(Math.random() * 3)];
+            const res = document.getElementById('result');
+
+            let resultMsg = '';
+            if (userChoice === compChoice) {
+                resultMsg = 'Hoa!';
+            } else if (
+                (userChoice === 'Da' && compChoice === 'Keo') ||
+                (userChoice === 'Giay' && compChoice === 'Da') ||
+                (userChoice === 'Keo' && compChoice === 'Giay')
+            ) {
+                resultMsg = 'Ban thang!';
+            } else {
+                resultMsg = 'Ban thua!';
+            }
+
+            res.innerText = 'Ban chon: ' + userChoice + ' | May chon: ' + compChoice + ' => Ket qua: ' + resultMsg;
+        }
+    </script>
+</body>
+</html>

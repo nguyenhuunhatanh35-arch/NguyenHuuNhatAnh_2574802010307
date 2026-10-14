@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 11: Kiem tra mat khau</title>
+</head>
+<body>
+    <h2>Kiem tra mat khau</h2>
+    <label for="pwd">Nhap mat khau:</label>
+    <input type="password" id="pwd" placeholder="Nhap mat khau...">
+    <button onclick="kiemTra()">Kiem tra</button>
+    <p id="result"></p>
+
+    <script>
+        function kiemTra() {
+            const pwd = document.getElementById('pwd').value;
+            const res = document.getElementById('result');
+            if (pwd.length >= 8) {
+                res.innerText = 'Mat khau hop le.';
+            } else {
+                res.innerText = 'Mat khau qua ngan.';
+            }
+        }
+    </script>
+</body>
+</html>

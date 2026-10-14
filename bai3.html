@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 3: Xep loai hoc luc</title>
+</head>
+<body>
+    <h2>Chuong trinh Xep loai hoc luc</h2>
+    <label for="score">Nhap diem (0-100):</label>
+    <input type="number" id="score" min="0" max="100" placeholder="0-100">
+    <button onclick="xepLoai()">Xep loai</button>
+    <p id="result"></p>
+
+    <script>
+        function xepLoai() {
+            const val = document.getElementById('score').value;
+            const res = document.getElementById('result');
+            if (val === '') {
+                res.innerText = 'Vui long nhap diem!';
+                return;
+            }
+            const score = parseFloat(val);
+            if (score < 0 || score > 100) {
+                res.innerText = 'Diem phai nam trong khoang tu 0 den 100!';
+            } else if (score >= 90) {
+                res.innerText = 'Xep loai: A';
+            } else if (score >= 80) {
+                res.innerText = 'Xep loai: B';
+            } else if (score >= 70) {
+                res.innerText = 'Xep loai: C';
+            } else if (score >= 60) {
+                res.innerText = 'Xep loai: D';
+            } else {
+                res.innerText = 'Xep loai: F';
+            }
+        }
+    </script>
+</body>
+</html>

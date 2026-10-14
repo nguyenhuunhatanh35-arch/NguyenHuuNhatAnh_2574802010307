@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 12: Kiem tra nam nhuan</title>
+</head>
+<body>
+    <h2>Kiem tra nam nhuan</h2>
+    <label for="year">Nhap nam:</label>
+    <input type="number" id="year" placeholder="">
+    <button onclick="kiemTra()">Kiem tra</button>
+    <p id="result"></p>
+
+    <script>
+        function kiemTra() {
+            const val = document.getElementById('year').value;
+            const res = document.getElementById('result');
+            if (!val) {
+                res.innerText = 'Vui long nhap nam!';
+                return;
+            }
+            const year = parseInt(val);
+            const isLeap = (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+            if (isLeap) {
+                res.innerText = 'Nam ' + year + ' La nam nhuan.';
+            } else {
+                res.innerText = 'Nam ' + year + ' Khong phai la nam nhuan.';
+            }
+        }
+    </script>
+</body>
+</html>
