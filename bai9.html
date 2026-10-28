@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bai 9: Quay thuong may man</title>
+  <meta charset="UTF-8">
+  <title>Bài 9: alternateSum</title>
 </head>
 <body>
-    <h2>Quay thuong may man</h2>
-    <button onclick="quayThuong()">Quay thuong</button>
-    <p id="result"></p>
+  <h2>Bài 9: Hàm alternateSum</h2>
+  <div id="result"></div>
 
-    <script>
-        function quayThuong() {
-            const gifts = ['Cong 1 diem', 'Cong 2 diem', 'Cong 3 diem', 'Tru 1 diem', 'Tru 2 diem', 'Tru 3 diem'];
-            const randomGift = gifts[Math.floor(Math.random() * gifts.length)];
-            document.getElementById('result').innerText = 'Ket qua: ' + randomGift;
+  <script>
+    function alternateSum(arr) {
+      let sum = 0;
+      for (let i = 0; i < arr.length; i++) {
+        if (i % 2 === 0) {
+          sum += arr[i];
+        } else {
+          sum -= arr[i];
         }
-    </script>
+      }
+      return sum;
+    }
+
+    // Sample usage
+    const res1 = alternateSum([10, 5, 6, 3]);   
+    const res2 = alternateSum([1, 2, 3, 4, 5]); 
+
+    document.getElementById("result").innerHTML = `
+      <p>alternateSum([10, 5, 6, 3]) => <b>${res1}</b></p>
+      <p>alternateSum([1, 2, 3, 4, 5]) => <b>${res2}</b></p>
+    `;
+    console.log(res1, res2);
+  </script>
 </body>
 </html>

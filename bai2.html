@@ -1,33 +1,31 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bai 2: Tinh tuoi</title>
+  <meta charset="UTF-8">
+  <title>Bài 2: sumOddNumbers</title>
 </head>
 <body>
-    <h2>Chuong trinh tinh tuoi</h2>
-    <label for="year">Nhap nam sinh:</label>
-    <input type="number" id="year" placeholder="">
-    <button onclick="tinhTuoi()">Tinh tuoi</button>
-    <p id="result"></p>
+  <h2>Bài 2: Hàm sumOddNumbers</h2>
+  <div id="result"></div>
 
-    <script>
-        function tinhTuoi() {
-            const val = document.getElementById('year').value;
-            const res = document.getElementById('result');
-            if (!val) {
-                res.innerText = 'Vui long nhap nam sinh!';
-                return;
-            }
-            const birthYear = parseInt(val);
-            const currentYear = new Date().getFullYear();
-            if (birthYear > currentYear) {
-                res.innerText = 'Nam sinh khong hop le!';
-            } else {
-                res.innerText = `Tuoi hien tai cua ban la: ${currentYear - birthYear} tuoi`;
-            }
+  <script>
+    function sumOddNumbers(arr) {
+      let sum = 0;
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 !== 0) {
+          sum += arr[i];
         }
-    </script>
+      }
+      return sum;
+    }
+
+    // Sample usage
+    const res = sumOddNumbers([1, 2, 3, 4, 5]); 
+
+    document.getElementById("result").innerHTML = `
+      <p>sumOddNumbers([1, 2, 3, 4, 5]) => <b>${res}</b></p>
+    `;
+    console.log(res);
+  </script>
 </body>
 </html>

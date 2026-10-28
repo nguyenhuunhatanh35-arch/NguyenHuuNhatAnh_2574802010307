@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bai 8: Du doan nghe nghiep</title>
+  <meta charset="UTF-8">
+  <title>Bài 8: countGreaterThan</title>
 </head>
 <body>
-    <h2>Du doan nghe nghiep</h2>
-    <label for="name">Nhap ten nguoi dung:</label>
-    <input type="text" id="name" placeholder="Ho va ten">
-    <button onclick="duDoan()">Xem nghe nghiep</button>
-    <p id="result"></p>
+  <h2>Bài 8: Hàm countGreaterThan</h2>
+  <div id="result"></div>
 
-    <script>
-        function duDoan() {
-            const name = document.getElementById('name').value.trim();
-            const res = document.getElementById('result');
-            if (!name) {
-                res.innerText = 'Vui long nhap ten!';
-                return;
-            }
-            const jobs = ['Lap trinh vien', 'Bac si', 'Giao vien', 'Phi cong', 'Doanh nhan', 'Hoa si', 'Ca si'];
-            const randomJob = jobs[Math.floor(Math.random() * jobs.length)];
-            res.innerText = 'Nghe nghiep tuong lai cua ' + name + ' la: ' + randomJob;
+  <script>
+    function countGreaterThan(arr, value) {
+      let count = 0;
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > value) {
+          count++;
         }
-    </script>
+      }
+      return count;
+    }
+
+    // Sample usage
+    const res1 = countGreaterThan([1, 5, 7, 2, 3], 3); 
+    const res2 = countGreaterThan([2, 3, 1, -6, 8], 5); 
+    const res3 = countGreaterThan([], 5);              
+
+    document.getElementById("result").innerHTML = `
+      <p>countGreaterThan([1, 5, 7, 2, 3], 3) => <b>${res1}</b></p>
+      <p>countGreaterThan([2, 3, 1, -6, 8], 5) => <b>${res2}</b></p>
+      <p>countGreaterThan([], 5) => <b>${res3}</b></p>
+    `;
+    console.log(res1, res2, res3);
+  </script>
 </body>
 </html>

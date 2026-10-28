@@ -1,37 +1,29 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bai 5: Doan so may man</title>
+  <meta charset="UTF-8">
+  <title>Bài 5: sumArray</title>
 </head>
 <body>
-    <h2>Chuong trinh doan so may man</h2>
-    <label for="num">Nhap so tu 1 den 10:</label>
-    <input type="number" id="num" min="1" max="10">
-    <button onclick="doanSo()">Doan so</button>
-    <p id="result"></p>
+  <h2>Bài 5: Hàm sumArray</h2>
+  <div id="result"></div>
 
-    <script>
-        function doanSo() {
-            const val = document.getElementById('num').value;
-            const res = document.getElementById('result');
-            if (!val) {
-                res.innerText = 'Vui long nhap mot so tu 1 den 10!';
-                return;
-            }
-            const userNum = parseInt(val);
-            if (userNum < 1 || userNum > 10) {
-                res.innerText = 'So nhap va phai trong khoang 1 den 10!';
-                return;
-            }
-            const randomNum = Math.floor(Math.random() * 10) + 1;
-            if (userNum === randomNum) {
-                res.innerText = 'So may ra: ' + randomNum + '. Ban da thang!';
-            } else {
-                res.innerText = 'So may ra: ' + randomNum + '. Chua may man!';
-            }
-        }
-    </script>
+  <script>
+    function sumArray(arr) {
+      let sum = 0;
+      for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+      }
+      return sum;
+    }
+
+    // Sample usage
+    const res = sumArray([1, 2, 3, 4, 5]); 
+
+    document.getElementById("result").innerHTML = `
+      <p>sumArray([1, 2, 3, 4, 5]) => <b>${res}</b></p>
+    `;
+    console.log(res);
+  </script>
 </body>
 </html>

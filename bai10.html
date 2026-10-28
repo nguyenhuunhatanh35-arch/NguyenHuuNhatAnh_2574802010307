@@ -1,49 +1,31 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bai 10: May tinh don gian</title>
+  <meta charset="UTF-8">
+  <title>Bài 10: sumOfSquares</title>
 </head>
 <body>
-    <h2>May tinh don gian</h2>
-    <input type="number" id="numA" placeholder="Nhap so thu nhat"><br><br>
-    <input type="number" id="numB" placeholder="Nhap so thu hai"><br><br>
-    <button onclick="tinh('+')">Phep cong</button>
-    <button onclick="tinh('-')">Phep tru</button>
-    <button onclick="tinh('*')">Phep nhan</button>
-    <button onclick="tinh('/')">Phep chia</button>
-    <p id="result"></p>
+  <h2>Bài 10: Hàm sumOfSquares</h2>
+  <div id="result"></div>
 
-    <script>
-        function tinh(op) {
-            const aVal = document.getElementById('numA').value;
-            const bVal = document.getElementById('numB').value;
-            const res = document.getElementById('result');
+  <script>
+    function sumOfSquares(arr) {
+      let sum = 0;
+      for (let i = 0; i < arr.length; i++) {
+        sum += arr[i] * arr[i];
+      }
+      return sum;
+    }
 
-            if (aVal === '' || bVal === '') {
-                res.innerText = 'Vui long nhap du 2 so!';
-                return;
-            }
+    // Sample usage
+    const res1 = sumOfSquares([1, 2, 3]); 
+    const res2 = sumOfSquares([4, 5, 6]); 
 
-            const a = parseFloat(aVal);
-            const b = parseFloat(bVal);
-            let ans = 0;
-
-            switch (op) {
-                case '+': ans = a + b; break;
-                case '-': ans = a - b; break;
-                case '*': ans = a * b; break;
-                case '/':
-                    if (b === 0) {
-                        res.innerText = 'Khong the chia cho 0!';
-                        return;
-                    }
-                    ans = a / b;
-                    break;
-            }
-            res.innerText = 'Ket qua: ' + a + ' ' + op + ' ' + b + ' = ' + ans;
-        }
-    </script>
+    document.getElementById("result").innerHTML = `
+      <p>sumOfSquares([1, 2, 3]) => <b>${res1}</b></p>
+      <p>sumOfSquares([4, 5, 6]) => <b>${res2}</b></p>
+    `;
+    console.log(res1, res2);
+  </script>
 </body>
 </html>

@@ -1,39 +1,32 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bai 6: Tro choi Oan tu ti</title>
+  <meta charset="UTF-8">
+  <title>Bài 6: calculateAverage</title>
 </head>
 <body>
-    <h2>Tro choi Oan tu ti</h2>
-    <p>Chon nuoc di cua ban:</p>
-    <button onclick="choi('Da')">Da</button>
-    <button onclick="choi('Giay')">Giay</button>
-    <button onclick="choi('Keo')">Keo</button>
-    <p id="result"></p>
+  <h2>Bài 6: Hàm calculateAverage</h2>
+  <div id="result"></div>
 
-    <script>
-        function choi(userChoice) {
-            const choices = ['Da', 'Giay', 'Keo'];
-            const compChoice = choices[Math.floor(Math.random() * 3)];
-            const res = document.getElementById('result');
+  <script>
+    function calculateAverage(arr) {
+      if (!arr || arr.length === 0) return 0;
+      let sum = 0;
+      for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+      }
+      return sum / arr.length;
+    }
 
-            let resultMsg = '';
-            if (userChoice === compChoice) {
-                resultMsg = 'Hoa!';
-            } else if (
-                (userChoice === 'Da' && compChoice === 'Keo') ||
-                (userChoice === 'Giay' && compChoice === 'Da') ||
-                (userChoice === 'Keo' && compChoice === 'Giay')
-            ) {
-                resultMsg = 'Ban thang!';
-            } else {
-                resultMsg = 'Ban thua!';
-            }
+    // Sample usage
+    const res1 = calculateAverage([10, 20, 30, 40, 50]); 
+    const res2 = calculateAverage([]); // 0
 
-            res.innerText = 'Ban chon: ' + userChoice + ' | May chon: ' + compChoice + ' => Ket qua: ' + resultMsg;
-        }
-    </script>
+    document.getElementById("result").innerHTML = `
+      <p>calculateAverage([10, 20, 30, 40, 50]) => <b>${res1}</b></p>
+      <p>calculateAverage([]) => <b>${res2}</b></p>
+    `;
+    console.log(res1, res2);
+  </script>
 </body>
 </html>

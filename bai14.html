@@ -1,53 +1,34 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bai 14: Tinh chi so BMI</title>
+  <meta charset="UTF-8">
+  <title>Bài 14: findMissingNumber</title>
 </head>
 <body>
-    <h2>Tinh chi so BMI</h2>
-    <label for="height">Chieu cao (m):</label><br>
-    <input type="number" step="0.01" id="height" placeholder="Vi du: 1.70"><br><br>
-    <label for="weight">Can nang (kg):</label><br>
-    <input type="number" step="0.1" id="weight" placeholder="Vi du: 65"><br><br>
-    <button onclick="tinhBMI()">Tinh BMI</button>
-    <p id="result"></p>
+  <h2>Bài 14: Hàm findMissingNumber</h2>
+  <div id="result"></div>
 
-    <script>
-        function tinhBMI() {
-            const hVal = document.getElementById('height').value;
-            const wVal = document.getElementById('weight').value;
-            const res = document.getElementById('result');
+  <script>
+    function findMissingNumber(arr, n) {
+      let expectedSum = (n * (n + 1)) / 2;
+      let actualSum = 0;
+      for (let i = 0; i < arr.length; i++) {
+        actualSum += arr[i];
+      }
+      return expectedSum - actualSum;
+    }
 
-            if (!hVal || !wVal) {
-                res.innerText = 'Vui long nhap day du chieu cao va can nang!';
-                return;
-            }
+    // Sample usage
+    const res1 = findMissingNumber([1, 2, 4, 5, 6], 6);       
+    const res2 = findMissingNumber([3, 7, 1, 2, 8, 4, 5], 8); 
+    const res3 = findMissingNumber([1, 2, 3, 4], 4);          
 
-            const h = parseFloat(hVal);
-            const w = parseFloat(wVal);
-
-            if (h <= 0 || w <= 0) {
-                res.innerText = 'Du lieu chieu cao va can nang phai lon hon 0!';
-                return;
-            }
-
-            const bmi = w / (h * h);
-            let category = '';
-
-            if (bmi < 18.5) {
-                category = 'Gầy';
-            } else if (bmi < 24.9) {
-                category = 'Bình thường';
-            } else if (bmi < 29.9) {
-                category = 'Thừa cân';
-            } else {
-                category = 'Béo phì';
-            }
-
-            res.innerText = 'BMI: ' + bmi.toFixed(2) + ' - Danh gia: ' + category;
-        }
-    </script>
+    document.getElementById("result").innerHTML = `
+      <p>findMissingNumber([1, 2, 4, 5, 6], 6) => <b>${res1}</b></p>
+      <p>findMissingNumber([3, 7, 1, 2, 8, 4, 5], 8) => <b>${res2}</b></p>
+      <p>findMissingNumber([1, 2, 3, 4], 4) => <b>${res3}</b></p>
+    `;
+    console.log(res1, res2, res3);
+  </script>
 </body>
 </html>

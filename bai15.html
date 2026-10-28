@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài 15: removeDuplicates</title>
+</head>
+<body>
+  <h2>Bài 15: Hàm removeDuplicates</h2>
+  <div id="result"></div>
+
+  <script>
+    function removeDuplicates(arr) {
+      let result = [];
+      for (let i = 0; i < arr.length; i++) {
+        let exists = false;
+        for (let j = 0; j < result.length; j++) {
+          if (arr[i] === result[j]) {
+            exists = true;
+            break;
+          }
+        }
+        if (!exists) {
+          result.push(arr[i]);
+        }
+      }
+      return result;
+    }
+
+    // Sample usage
+    const res = removeDuplicates([1, 2, 2, 3, 4, 4, 5]); 
+
+    document.getElementById("result").innerHTML = `
+      <p>removeDuplicates([1, 2, 2, 3, 4, 4, 5]) => <b>[${res.join(", ")}]</b></p>
+    `;
+    console.log(res);
+  </script>
+</body>
+</html>
